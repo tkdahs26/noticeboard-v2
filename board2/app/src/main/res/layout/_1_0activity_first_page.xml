@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CCE5FF"
+    tools:context="._1_0first_page">
+
+    <EditText
+        android:id="@+id/edit_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="아이디"
+        android:background="@drawable/border_text"
+        android:inputType="textPersonName"
+        android:translationX="70dp"
+        android:translationY="150dp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_password"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.735"
+        tools:layout_editor_absoluteX="81dp" />
+
+    <EditText
+        android:id="@+id/edit_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="비밀번호"
+        android:inputType="textPersonName"
+        android:translationX="70dp"
+        android:translationY="200dp"
+        android:background="@drawable/border_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="283dp" />
+
+    <ImageButton
+        android:id="@+id/btn_login"
+        android:layout_width="108dp"
+        android:layout_height="46dp"
+        android:src="@drawable/rectangle3"
+        android:background="@drawable/border_text"
+        android:translationX="200dp"
+        android:translationY="300dp"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="433dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:translationX="230dp"
+        android:translationY="310dp"
+        android:clickable="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:text="로그인">
+    </TextView>
+
+
+    <ImageButton
+        android:background="@drawable/border_text"
+        android:id="@+id/register_btn"
+        android:layout_width="108dp"
+        android:layout_height="46dp"
+        android:src="@drawable/rectangle2"
+        android:translationX="50dp"
+        android:translationY="300dp"
+        tools:layout_editor_absoluteX="248dp"
+        tools:layout_editor_absoluteY="431dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:translationX="70dp"
+        android:translationY="310dp"
+        android:clickable="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:text="회원가입">
+    </TextView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="229dp"
+        android:layout_height="76dp"
+        android:text="게시판"
+        android:textSize="50sp"
+        android:translationX="70dp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_id"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="74dp" />
+
+    <ImageButton
+        android:background="@drawable/border_text"
+        android:layout_width="108dp"
+        android:layout_height="46dp"
+        android:src="@drawable/rectangle"
+        tools:layout_editor_absoluteX="248dp"
+        tools:layout_editor_absoluteY="431dp"
+        android:id="@+id/find_id"
+        android:translationX="50dp"
+        android:translationY="400dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:translationX="60dp"
+        android:translationY="410dp"
+        android:clickable="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:text="아이디찾기">
+    </TextView>
+
+
+    <ImageButton
+        android:id="@+id/find_password"
+        android:layout_width="115dp"
+        android:layout_height="45dp"
+        android:src="@drawable/rectangle"
+        android:translationX="200dp"
+        android:translationY="400dp"
+        tools:layout_editor_absoluteX="248dp"
+        tools:layout_editor_absoluteY="431dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:clickable="false"
+        android:text="비밀번호찾기"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:translationX="200dp"
+        android:translationY="410dp" />
+</RelativeLayout>
