@@ -141,7 +141,7 @@ public class _1_1register_page extends AppCompatActivity {
 
                         }
 
-                    }) ;
+                    }).standard() ;
 
                 }
 
@@ -162,8 +162,53 @@ public class _1_1register_page extends AppCompatActivity {
                     builder.create();
                     builder.show();
                 }
-                else{
-                    overlapmethod();
+                else{new constructor_stringrequest(
+                    "http://tidahk.dothome.co.kr/overlap.php",
+                            "POST",
+                            new constructor_stringrequest.i_Listener() {
+                                @Override
+                                public void i_onResponse(String i_response) {
+
+                                    System.out.println(i_response);
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(_1_1register_page.this);
+                                    if (i_response.contains("중복아이디있다")){
+                                        builder.setMessage("중복아이디가 있습니다");
+                                        id_check=false;
+                                    }
+                                    else if(i_response.contains("중복아이디없다")){
+                                        builder.setMessage("중복된 아이디가 없습니다");
+                                        id_check=true;
+                                    }
+                                    builder.setNegativeButton("확인", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            System.out.println("버튼클릭");
+                                        }
+                                    });
+                                    AlertDialog alertDialog = builder.create();
+                                    alertDialog.show();
+                                }
+
+
+                            },
+                            new constructor_stringrequest.i_ErrorListener(){
+                                @Override
+                                public void i_onResponse(VolleyError i_error) {
+
+                                    System.out.println(i_error + "통신실패");
+                                }
+                            }, new constructor_stringrequest.i_getParams(){
+                        @Override
+                        public Map<String, String> getParams() {
+                            Map<String, String> params = new HashMap<String, String>();
+                            params.put("joinid_dup", joinid_str);
+
+                            return params;
+
+                        }
+
+                    }).standard()  ;
+
                 }
             }
         });

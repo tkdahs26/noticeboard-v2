@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#CCE5FF"
+    android:layout_height="match_parent"
+    tools:context="._1_3find_page_pwd">
+
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="비밀번호 찾기"
+        android:textSize="50dp"
+        android:translationX="70dp" />
+
+    <EditText
+        android:id="@+id/idfind_by_email_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="아이디"
+        android:background="@drawable/border_text"
+        android:inputType="textPersonName"
+        android:translationX="70dp"
+        android:translationY="200dp" />
+
+    <ImageButton
+        android:src="@drawable/rectangle"
+
+        android:id="@+id/find_back_btn"
+        android:layout_width="108dp"
+        android:layout_height="45dp"
+        android:translationX="70dp"
+        android:translationY="350dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:translationX="80dp"
+        android:translationY="360dp"
+        android:clickable="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:text="뒤로가기"/>
+    <ImageButton
+    android:src="@drawable/rectangle3"
+
+        android:id="@+id/submit_btn"
+        android:layout_width="108dp"
+        android:layout_height="45dp"
+        android:translationX="200dp"
+        android:translationY="350dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:translationX="230dp"
+        android:translationY="360dp"
+        android:clickable="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:text="찾기"/>
+</RelativeLayout>

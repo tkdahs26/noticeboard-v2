@@ -45,7 +45,20 @@ public class constructor_stringrequest {
         }
 
     }
+    public constructor_stringrequest(String url, String POST_GET, i_Listener i_listener, i_ErrorListener i_errorListener) {
+        this.url = url;
+        this.POST_GET = POST_GET;
+        this.i_Listener = i_listener;
+        this.i_ErrorListener = i_errorListener;
+        //this.i_getParams = i_getParams;
 
+        if (POST_GET.equalsIgnoreCase("POST")) {
+            method = Request.Method.POST;
+        } else {
+            method = Request.Method.GET;
+        }
+
+    }
 
     public void standard() {
         StringRequest request = new StringRequest(
@@ -54,14 +67,12 @@ public class constructor_stringrequest {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        if (i_Listener != null)
                             i_Listener.i_onResponse(response);
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        if (i_ErrorListener != null)
                             i_ErrorListener.i_onResponse(error);
                     }
                 }
@@ -71,7 +82,7 @@ public class constructor_stringrequest {
                 if (method == Request.Method.POST) {
                     return i_getParams.getParams();
                 }
-                return super.getParams();  //super공부하기
+                return super.getParams();
 
             }
 
@@ -83,3 +94,36 @@ public class constructor_stringrequest {
 }
 
 
+
+
+        /*      생성자 빈 예제
+                            new constructor_stringrequest(
+                            "http://tidahk.dothome.co.kr/register_php.php",
+                            "POST",
+                            new constructor_stringrequest.i_Listener() {
+                                @Override
+                                public void i_onResponse(String i_response) {
+
+
+
+                                }
+                            },
+                            new constructor_stringrequest.i_ErrorListener(){
+                                @Override
+                                public void i_onResponse(VolleyError i_error) {
+
+
+                                }
+                            }, new constructor_stringrequest.i_getParams(){
+                        @Override
+                        public Map<String, String> getParams() {
+                            Map<String, String> params = new HashMap<String, String>();
+
+
+                            return params;
+
+                        }
+
+                    }).standard()  ;
+
+*/

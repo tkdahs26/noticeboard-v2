@@ -9,9 +9,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -22,6 +22,10 @@ import com.android.volley.toolbox.Volley;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -126,12 +130,111 @@ public class _1_0first_page extends AppCompatActivity {
         String editpassword_text = edit_password.getText().toString();
 
 
+        new constructor_stringrequest(
+                "http://tidahk.dothome.co.kr/login.php",
+                "POST",
+                new constructor_stringrequest.i_Listener() {
+                    @Override
+                    public void i_onResponse(String i_response) {
+
+
+                        System.out.println("i_response" + i_response);
+                        try {
+
+                            JSONParser jsonParser = new JSONParser();
+                            JSONObject jsonObject1 = (JSONObject) jsonParser.parse(i_response);
+                            JSONObject json0 = (JSONObject) jsonObject1.get("result");
+                            json1 = (String) json0.get("joinid");
+                            json2 = (String) json0.get("joinpassword");
+
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(_1_0first_page.this);
+                            builder.setTitle("로그인 성공");
+                            builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    System.out.println("버튼클릭1");
+                                    Intent registerintent = new Intent(_1_0first_page.this, _2_0homepage.class);
+                                    _1_0first_page.this.startActivity(registerintent);
+                                }
+                            });
+                            AlertDialog alertDialog = builder.create();
+                            alertDialog.show();
+
+                        } catch (ParseException e) {      //ParseException=php오류 출력해줌
+                            System.out.println("exeption" + e);
+
+                            System.out.println("catchrespone" + i_response);
+
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(_1_0first_page.this);
+                            if (i_response.contains("아이디오류")) {
+                                builder.setTitle("로그인 실패").setMessage("ID를 다시입력해주세요");
+                            } else if (i_response.contains("비밀번호오류")) {
+                                builder.setTitle("로그인 실패").setMessage("비밀번호를 다시입력해주세요");
+                            } else {
+                                builder.setTitle("로그인 실패");
+                                System.out.println("예상못한오류");
+                            }
+
+                            //if는 조건만걸고 아래버튼은 공통으로사용
+                            builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    System.out.println("버튼클릭2");
+                                }
+                            });
+                            AlertDialog alertDialog = builder.create();
+                            alertDialog.show();
+
+
+                        }
+                        System.out.println("php통신성공");
+
+                    }
+
+                },
+                new constructor_stringrequest.i_ErrorListener() {
+                    @Override
+                    public void i_onResponse(VolleyError i_error) {
+
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(_1_0first_page.this);
+                        builder.setTitle("서버통신 실패");
+                        builder.setPositiveButton("뒤로가기", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                System.out.println("버튼클릭3");
+
+                                Intent registerintent = new Intent(_1_0first_page.this, _1_0first_page.class);
+                                _1_0first_page.this.startActivity(registerintent);
+                            }
+                        });
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
+                        System.out.println(i_error + "실패");
+                    }
+                }, new constructor_stringrequest.i_getParams(){
+            @Override
+            public Map<String, String> getParams() {
+
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("editid_php", editid_text);
+                params.put("editpassword_php", editpassword_text);
+
+                return params;
+
+            }
+
+        }).standard();
+
+
+
+
+
+/*
         StringRequest request = new StringRequest(
                 Request.Method.POST,
-                //GET 방식
-                //이 방식은 우리가 서버로부터 어떤 데이터를 받고 싶을 때 사용합니다.
-                //POST방식
-                //이 방식은 우리가 어떤 데이터를 서버에 보낼 때 사용하게 됩니다
                 url,
                 new Response.Listener<String>() {
                     @Override //응답성공시 행동코드 ajax done이랑 비슷
@@ -219,9 +322,7 @@ public class _1_0first_page extends AppCompatActivity {
                 return params;
             }
         };
-
-        staticmethod.requestQueue.add(request); //스태틱제네릭메소드 호출방법
-
+*/
 
     }
 

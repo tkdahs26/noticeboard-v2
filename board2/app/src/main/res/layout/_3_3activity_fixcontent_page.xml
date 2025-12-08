@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#CCE5FF"
+    android:layout_height="match_parent"
+    tools:context="._3_3fixcontent_page">
+
+    <EditText
+        android:id="@+id/fixtitle_edit"
+        android:layout_width="367dp"
+        android:layout_height="40dp"
+        android:background="@drawable/border_text"
+        android:translationX="20dp"
+        android:translationY="50dp" />
+
+    <EditText
+        android:id="@+id/fixcontent_edit"
+        android:layout_width="370dp"
+        android:layout_height="246dp"
+        android:background="@drawable/border_text"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:translationX="20dp"
+        android:translationY="200dp" />
+
+    <TextView
+        android:id="@+id/fixwriter_textview"
+        android:layout_width="95dp"
+        android:layout_height="37dp"
+        android:text="TextView"
+        android:background="@drawable/border_text"
+        android:translationX="300dp" />
+
+    <ImageButton
+        android:id="@+id/fix_button"
+        android:layout_width="108dp"
+        android:layout_height="45dp"
+        android:src="@drawable/rectangle3"
+        android:translationX="100dp"
+        android:translationY="470dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:clickable="false"
+        android:text="확인"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:translationX="130dp"
+        android:translationY="480dp" />
+
+
+
+</RelativeLayout>
